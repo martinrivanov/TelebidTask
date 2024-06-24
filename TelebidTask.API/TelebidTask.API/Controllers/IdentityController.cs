@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using TelebidTask.Data;
 using TelebidTask.Data.Models;
@@ -17,6 +18,57 @@ namespace TelebidTask.API.Controllers
         {
             this.context = context;
             this.passwordService = passwordService;
+        }
+
+        [HttpGet]
+        [Route("/{id}")]
+        public async Task<IActionResult> GetUserById(Guid id)
+        {
+            var user = context.Users.FirstOrDefault(u => u.Id == id);
+
+            if(user == null)
+            {
+                return BadRequest();
+            }
+
+            return new OkObjectResult(user);
+        }
+
+        [HttpPatch]
+        [Route("/")]
+        public async Task<IActionResult> UpdateUser(Guid id, [FromBody]JsonPatchDocument<User> patch)
+        {
+            var user = context.Users.FirstOrDefault(u => u.Id == id);
+
+            if (user == null)
+            {
+                return BadRequest();
+            }
+
+            var detachedUser = new User
+            {
+                Id = id,
+                Name = user.Name,
+                Email = user.Email,
+                Password = user.Password,
+            };
+
+            patch.ApplyTo(user, ModelState);
+
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
+
+            await context.SaveChangesAsync();
+
+            if (detachedUser.Password != user.Password)
+            {
+                user.Password = passwordService.GeneratePasswordHash(user.Password, Convert.FromBase64String(user.Salt));
+                await context.SaveChangesAsync();
+            }
+
+            return new OkObjectResult(new{ user, Password = user.Password});
         }
 
         [HttpPost]

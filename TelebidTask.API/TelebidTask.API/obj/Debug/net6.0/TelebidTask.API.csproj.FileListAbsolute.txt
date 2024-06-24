@@ -65,3 +65,7 @@ C:\Users\Lenovo\Desktop\TelebidTask\TelebidTask\TelebidTask.API\TelebidTask.API\
 C:\Users\Lenovo\Desktop\TelebidTask\TelebidTask\TelebidTask.API\TelebidTask.API\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Design.dll
 C:\Users\Lenovo\Desktop\TelebidTask\TelebidTask\TelebidTask.API\TelebidTask.API\bin\Debug\net6.0\TelebidTasks.Services.dll
 C:\Users\Lenovo\Desktop\TelebidTask\TelebidTask\TelebidTask.API\TelebidTask.API\bin\Debug\net6.0\TelebidTasks.Services.pdb
+C:\Users\Lenovo\Desktop\TelebidTask\TelebidTask\TelebidTask.API\TelebidTask.API\bin\Debug\net6.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\Lenovo\Desktop\TelebidTask\TelebidTask\TelebidTask.API\TelebidTask.API\bin\Debug\net6.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\Lenovo\Desktop\TelebidTask\TelebidTask\TelebidTask.API\TelebidTask.API\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\Lenovo\Desktop\TelebidTask\TelebidTask\TelebidTask.API\TelebidTask.API\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
