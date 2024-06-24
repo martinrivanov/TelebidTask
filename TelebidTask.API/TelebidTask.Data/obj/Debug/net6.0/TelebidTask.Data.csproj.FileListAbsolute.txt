@@ -1,0 +1,14 @@
+C:\Users\Lenovo\Desktop\TelebidTask\TelebidTask\TelebidTask.API\TelebidTask.Data\bin\Debug\net6.0\TelebidTask.Data.deps.json
+C:\Users\Lenovo\Desktop\TelebidTask\TelebidTask\TelebidTask.API\TelebidTask.Data\bin\Debug\net6.0\TelebidTask.Data.runtimeconfig.json
+C:\Users\Lenovo\Desktop\TelebidTask\TelebidTask\TelebidTask.API\TelebidTask.Data\bin\Debug\net6.0\TelebidTask.Data.dll
+C:\Users\Lenovo\Desktop\TelebidTask\TelebidTask\TelebidTask.API\TelebidTask.Data\bin\Debug\net6.0\ref\TelebidTask.Data.dll
+C:\Users\Lenovo\Desktop\TelebidTask\TelebidTask\TelebidTask.API\TelebidTask.Data\bin\Debug\net6.0\TelebidTask.Data.pdb
+C:\Users\Lenovo\Desktop\TelebidTask\TelebidTask\TelebidTask.API\TelebidTask.Data\obj\Debug\net6.0\TelebidTask.Data.csproj.AssemblyReference.cache
+C:\Users\Lenovo\Desktop\TelebidTask\TelebidTask\TelebidTask.API\TelebidTask.Data\obj\Debug\net6.0\TelebidTask.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Lenovo\Desktop\TelebidTask\TelebidTask\TelebidTask.API\TelebidTask.Data\obj\Debug\net6.0\TelebidTask.Data.AssemblyInfoInputs.cache
+C:\Users\Lenovo\Desktop\TelebidTask\TelebidTask\TelebidTask.API\TelebidTask.Data\obj\Debug\net6.0\TelebidTask.Data.AssemblyInfo.cs
+C:\Users\Lenovo\Desktop\TelebidTask\TelebidTask\TelebidTask.API\TelebidTask.Data\obj\Debug\net6.0\TelebidTask.Data.csproj.CoreCompileInputs.cache
+C:\Users\Lenovo\Desktop\TelebidTask\TelebidTask\TelebidTask.API\TelebidTask.Data\obj\Debug\net6.0\TelebidTask.Data.dll
+C:\Users\Lenovo\Desktop\TelebidTask\TelebidTask\TelebidTask.API\TelebidTask.Data\obj\Debug\net6.0\ref\TelebidTask.Data.dll
+C:\Users\Lenovo\Desktop\TelebidTask\TelebidTask\TelebidTask.API\TelebidTask.Data\obj\Debug\net6.0\TelebidTask.Data.pdb
+C:\Users\Lenovo\Desktop\TelebidTask\TelebidTask\TelebidTask.API\TelebidTask.Data\obj\Debug\net6.0\TelebidTask.Data.genruntimeconfig.cache
