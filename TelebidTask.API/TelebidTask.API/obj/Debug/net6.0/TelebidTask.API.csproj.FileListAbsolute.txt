@@ -63,3 +63,5 @@ C:\Users\Lenovo\Desktop\TelebidTask\TelebidTask\TelebidTask.API\TelebidTask.API\
 C:\Users\Lenovo\Desktop\TelebidTask\TelebidTask\TelebidTask.API\TelebidTask.API\obj\Debug\net6.0\TelebidTask.API.genruntimeconfig.cache
 C:\Users\Lenovo\Desktop\TelebidTask\TelebidTask\TelebidTask.API\TelebidTask.API\bin\Debug\net6.0\Humanizer.dll
 C:\Users\Lenovo\Desktop\TelebidTask\TelebidTask\TelebidTask.API\TelebidTask.API\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\Lenovo\Desktop\TelebidTask\TelebidTask\TelebidTask.API\TelebidTask.API\bin\Debug\net6.0\TelebidTasks.Services.dll
+C:\Users\Lenovo\Desktop\TelebidTask\TelebidTask\TelebidTask.API\TelebidTask.API\bin\Debug\net6.0\TelebidTasks.Services.pdb

@@ -707,6 +707,16 @@
         "runtime": {
           "bin/placeholder/TelebidTask.Data.dll": {}
         }
+      },
+      "TelebidTasks.Services/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/TelebidTasks.Services.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/TelebidTasks.Services.dll": {}
+        }
       }
     }
   },
@@ -2033,13 +2043,19 @@
       "type": "project",
       "path": "../TelebidTask.Data/TelebidTask.Data.csproj",
       "msbuildProject": "../TelebidTask.Data/TelebidTask.Data.csproj"
+    },
+    "TelebidTasks.Services/1.0.0": {
+      "type": "project",
+      "path": "../TelebidTasks.Services/TelebidTasks.Services.csproj",
+      "msbuildProject": "../TelebidTasks.Services/TelebidTasks.Services.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
       "Microsoft.EntityFrameworkCore.Design >= 6.0.31",
       "Swashbuckle.AspNetCore >= 6.2.3",
-      "TelebidTask.Data >= 1.0.0"
+      "TelebidTask.Data >= 1.0.0",
+      "TelebidTasks.Services >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -2071,6 +2087,9 @@
           "projectReferences": {
             "C:\\Users\\Lenovo\\Desktop\\TelebidTask\\TelebidTask\\TelebidTask.API\\TelebidTask.Data\\TelebidTask.Data.csproj": {
               "projectPath": "C:\\Users\\Lenovo\\Desktop\\TelebidTask\\TelebidTask\\TelebidTask.API\\TelebidTask.Data\\TelebidTask.Data.csproj"
+            },
+            "C:\\Users\\Lenovo\\Desktop\\TelebidTask\\TelebidTask\\TelebidTask.API\\TelebidTasks.Services\\TelebidTasks.Services.csproj": {
+              "projectPath": "C:\\Users\\Lenovo\\Desktop\\TelebidTask\\TelebidTask\\TelebidTask.API\\TelebidTasks.Services\\TelebidTasks.Services.csproj"
             }
           }
         }

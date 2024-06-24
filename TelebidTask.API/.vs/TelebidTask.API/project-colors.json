@@ -1,0 +1,26 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "671788eb-b0ee-49ed-8c74-1a1179f284b9": {
+      "ProjectGuid": "671788eb-b0ee-49ed-8c74-1a1179f284b9",
+      "DisplayName": "TelebidTask.API",
+      "ColorIndex": 0
+    },
+    "e3bb3659-ade0-43ca-9727-b2a9046515c3": {
+      "ProjectGuid": "e3bb3659-ade0-43ca-9727-b2a9046515c3",
+      "DisplayName": "TelebidTask.Data",
+      "ColorIndex": 1
+    },
+    "0a3c1d75-1a84-45a4-8204-d8776a536bc8": {
+      "ProjectGuid": "0a3c1d75-1a84-45a4-8204-d8776a536bc8",
+      "DisplayName": "TelebidTasks.Services",
+      "ColorIndex": 2
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
+    }
+  },
+  "NextColorIndex": 3
+}

@@ -10,7 +10,8 @@
         "dependencies": {
           "Microsoft.EntityFrameworkCore.Design": "6.0.31",
           "Swashbuckle.AspNetCore": "6.2.3",
-          "TelebidTask.Data": "1.0.0"
+          "TelebidTask.Data": "1.0.0",
+          "TelebidTasks.Services": "1.0.0"
         },
         "runtime": {
           "TelebidTask.API.dll": {}
@@ -495,6 +496,11 @@
         "runtime": {
           "TelebidTask.Data.dll": {}
         }
+      },
+      "TelebidTasks.Services/1.0.0": {
+        "runtime": {
+          "TelebidTasks.Services.dll": {}
+        }
       }
     }
   },
@@ -841,6 +847,11 @@
       "hashPath": "system.windows.extensions.4.7.0.nupkg.sha512"
     },
     "TelebidTask.Data/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "TelebidTasks.Services/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
