@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TelebidTask.API", "TelebidT
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TelebidTask.Data", "TelebidTask.Data\TelebidTask.Data.csproj", "{E3BB3659-ADE0-43CA-9727-B2A9046515C3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelebidTasks.Services", "TelebidTasks.Services\TelebidTasks.Services.csproj", "{0A3C1D75-1A84-45A4-8204-D8776A536BC8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TelebidTask.Services", "TelebidTasks.Services\TelebidTask.Services.csproj", "{0A3C1D75-1A84-45A4-8204-D8776A536BC8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
-using TelebidTasks.Services.Contracts;
+using TelebidTask.Services.Contracts;
 
-namespace TelebidTasks.Services.PasswordService
+namespace TelebidTask.Services.PasswordService
 {
     public class PasswordService : IPasswordService
     {

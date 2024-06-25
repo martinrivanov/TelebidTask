@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "p5j20GbPcz62kz84MF0sTnfkwCgWUXg+IMcsZkPqC4p5/Le1T1s/6vX1ZOuG7ARgtjAMrbVYuXVq2cNerle3GA==",
+  "dgSpecHash": "TFCXAlbTQ0MrP8IhLX+t+xriYF9Spr3aV3DY6D6rCYFKeSTLXwcddCkR50IZIDy17wN912rOIZORmrTz8QVQHA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Lenovo\\Desktop\\TelebidTask\\TelebidTask\\TelebidTask.API\\TelebidTasks.Services\\TelebidTasks.Services.csproj",
+  "projectFilePath": "C:\\Users\\Lenovo\\Desktop\\TelebidTask\\TelebidTask\\TelebidTask.API\\TelebidTasks.Services\\TelebidTask.Services.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

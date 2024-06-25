@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TelebidTasks.Services.Contracts
+namespace TelebidTask.Services.Contracts
 {
     public interface IPasswordService
     {

@@ -18,7 +18,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\TelebidTask.Data\TelebidTask.Data.csproj" />
-    <ProjectReference Include="..\TelebidTasks.Services\TelebidTasks.Services.csproj" />
+    <ProjectReference Include="..\TelebidTasks.Services\TelebidTask.Services.csproj" />
   </ItemGroup>
 
 </Project>

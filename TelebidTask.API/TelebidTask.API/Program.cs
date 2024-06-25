@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using TelebidTask.Data;
-using TelebidTasks.Services.Contracts;
-using TelebidTasks.Services.PasswordService;
+using TelebidTask.Services.Contracts;
+using TelebidTask.Services.PasswordService;
 
 var builder = WebApplication.CreateBuilder(args);
 

@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using TelebidTask.Data;
 using TelebidTask.Data.Models;
-using TelebidTasks.Services.Contracts;
+using TelebidTask.Services.Contracts;
 
 namespace TelebidTask.API.Controllers
 {

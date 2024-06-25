@@ -13,9 +13,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Lenovo\\Desktop\\TelebidTask\\TelebidTask\\TelebidTask.API\\TelebidTasks.Services\\TelebidTasks.Services.csproj",
-      "projectName": "TelebidTasks.Services",
-      "projectPath": "C:\\Users\\Lenovo\\Desktop\\TelebidTask\\TelebidTask\\TelebidTask.API\\TelebidTasks.Services\\TelebidTasks.Services.csproj",
+      "projectUniqueName": "C:\\Users\\Lenovo\\Desktop\\TelebidTask\\TelebidTask\\TelebidTask.API\\TelebidTasks.Services\\TelebidTask.Services.csproj",
+      "projectName": "TelebidTask.Services",
+      "projectPath": "C:\\Users\\Lenovo\\Desktop\\TelebidTask\\TelebidTask\\TelebidTask.API\\TelebidTasks.Services\\TelebidTask.Services.csproj",
       "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\Lenovo\\Desktop\\TelebidTask\\TelebidTask\\TelebidTask.API\\TelebidTasks.Services\\obj\\",
       "projectStyle": "PackageReference",
