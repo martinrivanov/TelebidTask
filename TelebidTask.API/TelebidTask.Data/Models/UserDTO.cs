@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TelebidTask.Data.Models
 {
-    public class RegistrationModel
+    public class UserDTO
     {
         public string Name { get; set; }
         public string Email { get; set; }

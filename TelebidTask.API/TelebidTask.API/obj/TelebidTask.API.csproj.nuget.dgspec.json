@@ -143,6 +143,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[6.0.31, )"
+            },
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.6, )"
             }
           },
           "imports": [
@@ -187,7 +191,11 @@
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\Lenovo\\Desktop\\TelebidTask\\TelebidTask\\TelebidTask.API\\TelebidTask.Data\\TelebidTask.Data.csproj": {
+                "projectPath": "C:\\Users\\Lenovo\\Desktop\\TelebidTask\\TelebidTask\\TelebidTask.API\\TelebidTask.Data\\TelebidTask.Data.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -199,6 +207,12 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.JsonPatch": {
+              "target": "Package",
+              "version": "[6.0.31, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

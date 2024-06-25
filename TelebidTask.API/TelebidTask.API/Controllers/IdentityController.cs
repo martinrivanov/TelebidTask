@@ -1,7 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.JsonPatch;
+﻿using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
-using TelebidTask.Data;
 using TelebidTask.Data.Models;
 using TelebidTask.Services.Contracts;
 
@@ -11,24 +9,27 @@ namespace TelebidTask.API.Controllers
     [ApiController]
     public class IdentityController : ControllerBase
     {
-        private readonly DataContext context;
-        private readonly IPasswordService passwordService;
+        private readonly IUserService userService;
 
-        public IdentityController(DataContext context, IPasswordService passwordService)
+        public IdentityController(IUserService userService)
         {
-            this.context = context;
-            this.passwordService = passwordService;
+            this.userService = userService;
         }
 
         [HttpGet]
         [Route("/{id}")]
-        public async Task<IActionResult> GetUserById(Guid id)
+        public IActionResult GetUserById(Guid id)
         {
-            var user = context.Users.FirstOrDefault(u => u.Id == id);
+            if (id == null)
+            {
+                return BadRequest();
+            }
+
+            var user = userService.GetUserById(id);
 
             if(user == null)
             {
-                return BadRequest();
+                return NotFound();
             }
 
             return new OkObjectResult(user);
@@ -38,70 +39,38 @@ namespace TelebidTask.API.Controllers
         [Route("/")]
         public async Task<IActionResult> UpdateUser(Guid id, [FromBody]JsonPatchDocument<User> patch)
         {
-            var user = context.Users.FirstOrDefault(u => u.Id == id);
+            if (patch == null || id == null || !ModelState.IsValid)
+            {
+                return new BadRequestObjectResult(new { Mesage = "No Credentials" });
+            }
+
+            var user = userService.UpdateUser(id, patch);
 
             if (user == null)
             {
-                return BadRequest();
+                return new NotFoundObjectResult(new { Mesage = "No User Was Found" });
             }
 
-            var detachedUser = new User
-            {
-                Id = id,
-                Name = user.Name,
-                Email = user.Email,
-                Password = user.Password,
-            };
-
-            patch.ApplyTo(user, ModelState);
-
-            if (!ModelState.IsValid)
-            {
-                return BadRequest();
-            }
-
-            await context.SaveChangesAsync();
-
-            if (detachedUser.Password != user.Password)
-            {
-                user.Password = passwordService.GeneratePasswordHash(user.Password, Convert.FromBase64String(user.Salt));
-                await context.SaveChangesAsync();
-            }
-
-            return new OkObjectResult(new{ user, Password = user.Password});
+            return new OkObjectResult(user);
         }
 
         [HttpPost]
         [Route("/Register")]
-        public async Task<IActionResult> Register([FromBody] RegistrationModel registration)
+        public async Task<IActionResult> Register([FromBody] UserDTO registration)
         {
             if (registration == null || !ModelState.IsValid)
             {
                 return new BadRequestObjectResult(new { Mesage = "No Credentials" });
             }
 
-            var user = context.Users.FirstOrDefault(u => u.Email.Equals(registration.Email));
+            var newUser = await userService.Register(registration);
 
-            if (user != null)
+            if (newUser == null)
             {
-                return new BadRequestObjectResult(new { Mesage = "Already Existent User" });
+                return new BadRequestObjectResult(new { Mesage = "Registration Unsuccessful" });
             }
 
-            var salt = passwordService.GenerateSalt();
-            var hashedPassword = passwordService.GeneratePasswordHash(registration.Password, salt);
-
-            User registeredUser = new User
-            {
-                Name = registration.Name,
-                Email = registration.Email,
-                Password = hashedPassword,
-                Salt = Convert.ToBase64String(salt)
-            };
-
-            await context.Users.AddAsync(registeredUser);
-            await context.SaveChangesAsync();
-
-            return new OkObjectResult(new { Message = "Successful Registration"});
+            return new OkResult();
         }
 
         [HttpPost]
@@ -113,22 +82,14 @@ namespace TelebidTask.API.Controllers
                 return new BadRequestObjectResult(new { Mesage = "No Credentials" });
             }
 
-            var user = context.Users.FirstOrDefault(u => u.Email.Equals(credentials.Email));
+            var user = userService.Login(credentials);
 
             if (user == null)
             {
-                return new BadRequestObjectResult(new { Mesage = "Non-Existent User" });
+                return new BadRequestObjectResult(new { Message = "Incorrect email or password" });
             }
 
-            var salt = Convert.FromBase64String(user.Salt);
-            var enteredPasswordHash = passwordService.GeneratePasswordHash(credentials.Password, salt);
-
-            if (user.Password != enteredPasswordHash)
-            {
-                return new BadRequestObjectResult(new { Mesage = "Incorrect Password" });
-            }
-
-            return new OkObjectResult(new { Message = "Successful Login", User = user});
+            return new OkObjectResult(new { UserId = user.Id });
         }
     }
 }

@@ -10,3 +10,6 @@ C:\Users\Lenovo\Desktop\TelebidTask\TelebidTask\TelebidTask.API\TelebidTasks.Ser
 C:\Users\Lenovo\Desktop\TelebidTask\TelebidTask\TelebidTask.API\TelebidTasks.Services\obj\Debug\net6.0\TelebidTask.Services.dll
 C:\Users\Lenovo\Desktop\TelebidTask\TelebidTask\TelebidTask.API\TelebidTasks.Services\obj\Debug\net6.0\ref\TelebidTask.Services.dll
 C:\Users\Lenovo\Desktop\TelebidTask\TelebidTask\TelebidTask.API\TelebidTasks.Services\obj\Debug\net6.0\TelebidTask.Services.pdb
+C:\Users\Lenovo\Desktop\TelebidTask\TelebidTask\TelebidTask.API\TelebidTasks.Services\bin\Debug\net6.0\TelebidTask.Data.dll
+C:\Users\Lenovo\Desktop\TelebidTask\TelebidTask\TelebidTask.API\TelebidTasks.Services\bin\Debug\net6.0\TelebidTask.Data.pdb
+C:\Users\Lenovo\Desktop\TelebidTask\TelebidTask\TelebidTask.API\TelebidTasks.Services\obj\Debug\net6.0\TelebidTask.Services.csproj.CopyComplete
