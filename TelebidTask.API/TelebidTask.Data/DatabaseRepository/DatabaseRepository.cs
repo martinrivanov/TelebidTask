@@ -19,7 +19,7 @@ namespace TelebidTask.Data.DatabaseRepository
             this.connectionString = "Server=.;Database=UserDB;Integrated Security=true;";
         }
 
-        public User CreateUser(User user)
+        public async Task<User> CreateUser(User user)
         {
             var rowsAffected = 0;
             var userId = Guid.NewGuid();
@@ -79,17 +79,17 @@ namespace TelebidTask.Data.DatabaseRepository
                 cmd.Parameters.Add(password);
                 cmd.Parameters.Add(salt);
 
-                connection.Open();
+                await connection.OpenAsync();
 
-                rowsAffected = cmd.ExecuteNonQuery();
+                rowsAffected = await cmd.ExecuteNonQueryAsync();
 
-                connection.Close();
+                await connection.CloseAsync();
             }
 
-            return rowsAffected > 0 ? GetUserById(userId) : null;
+            return rowsAffected > 0 ? await GetUserById(userId) : null;
         }
 
-        public User GetUserByEmail(string email)
+        public async Task<User> GetUserByEmail(string email)
         {
             User user = null;
 
@@ -112,9 +112,9 @@ namespace TelebidTask.Data.DatabaseRepository
 
                 cmd.Parameters.Add(parameter);
 
-                connection.Open();
+                await connection.OpenAsync();
 
-                var dataReader = cmd.ExecuteReader();
+                var dataReader = await cmd.ExecuteReaderAsync();
 
                 while (dataReader.Read())
                 {
@@ -126,13 +126,13 @@ namespace TelebidTask.Data.DatabaseRepository
                     user.Salt = $"{dataReader["Salt"]}";
                 }
 
-                connection.Close();
+                await connection.CloseAsync();
             }
 
             return user;
         }
 
-        public User GetUserById(Guid id)
+        public async Task<User> GetUserById(Guid id)
         {
             User user = null;
 
@@ -155,9 +155,9 @@ namespace TelebidTask.Data.DatabaseRepository
 
                 cmd.Parameters.Add(parameter);
 
-                connection.Open();
+                await connection.OpenAsync();
                 
-                var dataReader = cmd.ExecuteReader();
+                var dataReader = await cmd.ExecuteReaderAsync();
 
                 while (dataReader.Read())
                 {
@@ -169,59 +169,14 @@ namespace TelebidTask.Data.DatabaseRepository
                     user.Salt = $"{dataReader["Salt"]}";
                 }
 
-                connection.Close();
+                await connection.CloseAsync();
             }
 
             return user;
         }
 
-        public IEnumerable<User> GetUsers()
+        public async Task UpdateUser(Guid id, User user)
         {
-            throw new NotImplementedException();
-        }
-
-        public bool IsThereAUserWithEmail(string email)
-        {
-            int numberOfUsersWithEmail = 0;
-
-            using (var connection = new SqlConnection(connectionString))
-            {
-                var cmd = new SqlCommand("getCountOfUsersWithEmail", connection)
-                {
-                    CommandType = CommandType.StoredProcedure
-                };
-
-                var parameter = new SqlParameter()
-                {
-                    ParameterName = "@Email",
-                    SqlDbType = SqlDbType.NVarChar,
-                    Value = email,
-                    Direction = ParameterDirection.Input
-                };
-
-                cmd.Parameters.Clear();
-
-                cmd.Parameters.Add(parameter);
-
-                connection.Open();
-
-                var dataReader = cmd.ExecuteReader();
-
-                while (dataReader.Read())
-                {
-                    numberOfUsersWithEmail = (int)dataReader["CountOfUsersWithEmail"];
-                }
-
-                connection.Close();
-            }
-
-            return numberOfUsersWithEmail > 0;
-        }
-
-        public void UpdateUser(Guid id, User user)
-        {
-            var rowsAffected = 0;
-
             using (var connection = new SqlConnection(connectionString))
             {
                 var cmd = new SqlCommand("updateUserInfo", connection)
@@ -268,11 +223,11 @@ namespace TelebidTask.Data.DatabaseRepository
                 cmd.Parameters.Add(email);
                 cmd.Parameters.Add(password);
 
-                connection.Open();
+                await connection.OpenAsync();
 
-                rowsAffected = cmd.ExecuteNonQuery();
+                await cmd.ExecuteNonQueryAsync();
 
-                connection.Close();
+                await connection.CloseAsync();
             }
         }
     }

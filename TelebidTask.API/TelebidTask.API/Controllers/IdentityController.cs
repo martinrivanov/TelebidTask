@@ -18,14 +18,9 @@ namespace TelebidTask.API.Controllers
 
         [HttpGet]
         [Route("/{id}")]
-        public IActionResult GetUserById(Guid id)
+        public async Task<IActionResult> GetUserById(Guid id)
         {
-            if (id == null)
-            {
-                return BadRequest();
-            }
-
-            var user = userService.GetUserById(id);
+            var user = await userService.GetUserById(id);
 
             if(user == null)
             {
@@ -39,24 +34,24 @@ namespace TelebidTask.API.Controllers
         [Route("/")]
         public async Task<IActionResult> UpdateUser(Guid id, [FromBody]JsonPatchDocument<User> patch)
         {
-            if (patch == null || id == null || !ModelState.IsValid)
+            if (patch == null || !ModelState.IsValid)
             {
-                return new BadRequestObjectResult(new { Mesage = "No Credentials" });
+                return new BadRequestObjectResult(new { Mesage = "Invalid Data" });
             }
 
-            var user = userService.UpdateUser(id, patch);
+            var user = await userService.UpdateUser(id, patch);
 
             if (user == null)
             {
                 return new NotFoundObjectResult(new { Mesage = "No User Was Found" });
             }
 
-            return new OkObjectResult(user);
+            return new NoContentResult();
         }
 
         [HttpPost]
         [Route("/Register")]
-        public async Task<IActionResult> Register([FromBody] UserDTO registration)
+        public async Task<IActionResult> Register([FromBody] RegistrationUserModel registration)
         {
             if (registration == null || !ModelState.IsValid)
             {
@@ -82,7 +77,7 @@ namespace TelebidTask.API.Controllers
                 return new BadRequestObjectResult(new { Mesage = "No Credentials" });
             }
 
-            var user = userService.Login(credentials);
+            var user = await userService.Login(credentials);
 
             if (user == null)
             {

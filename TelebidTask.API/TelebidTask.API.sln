@@ -9,6 +9,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TelebidTask.Data", "Telebid
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TelebidTask.Services", "TelebidTasks.Services\TelebidTask.Services.csproj", "{0A3C1D75-1A84-45A4-8204-D8776A536BC8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelebidTask.Services.Tests", "TelebidTask.Tests\TelebidTask.Services.Tests.csproj", "{298A4121-3F79-4AE3-B548-B963C326B357}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelebidTask.API.Tests", "TelebidTask.API.Tests\TelebidTask.API.Tests.csproj", "{776F6F82-F2F5-4E5D-9151-39C988B2CCA7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{0A3C1D75-1A84-45A4-8204-D8776A536BC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0A3C1D75-1A84-45A4-8204-D8776A536BC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0A3C1D75-1A84-45A4-8204-D8776A536BC8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{298A4121-3F79-4AE3-B548-B963C326B357}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{298A4121-3F79-4AE3-B548-B963C326B357}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{298A4121-3F79-4AE3-B548-B963C326B357}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{298A4121-3F79-4AE3-B548-B963C326B357}.Release|Any CPU.Build.0 = Release|Any CPU
+		{776F6F82-F2F5-4E5D-9151-39C988B2CCA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{776F6F82-F2F5-4E5D-9151-39C988B2CCA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{776F6F82-F2F5-4E5D-9151-39C988B2CCA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{776F6F82-F2F5-4E5D-9151-39C988B2CCA7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

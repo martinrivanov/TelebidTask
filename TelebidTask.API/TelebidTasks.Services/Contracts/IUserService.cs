@@ -10,9 +10,9 @@ namespace TelebidTask.Services.Contracts
 {
     public interface IUserService
     {
-        User GetUserById(Guid Id);
-        User Login(LoginCredentials credentials);
-        Task<User> Register(UserDTO userDTO);
-        User UpdateUser(Guid id, JsonPatchDocument<User> patch);
+        Task<UserDTO> GetUserById(Guid Id);
+        Task<UserDTO> Login(LoginCredentials credentials);
+        Task<UserDTO> Register(RegistrationUserModel userDTO);
+        Task<UserDTO> UpdateUser(Guid id, JsonPatchDocument<User> patch);
     }
 }

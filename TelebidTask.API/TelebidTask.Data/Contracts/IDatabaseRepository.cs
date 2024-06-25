@@ -9,11 +9,9 @@ namespace TelebidTask.Data.Contracts
 {
     public interface IDatabaseRepository
     {
-        IEnumerable<User> GetUsers();
-        User GetUserById(Guid id);
-        User GetUserByEmail(string email);
-        bool IsThereAUserWithEmail(string email);
-        User CreateUser(User registrationModel);
-        void UpdateUser(Guid id, User user);
+        Task<User> GetUserById(Guid id);
+        Task<User> GetUserByEmail(string email);
+        Task<User> CreateUser(User registrationModel);
+        Task UpdateUser(Guid id, User user);
     }
 }

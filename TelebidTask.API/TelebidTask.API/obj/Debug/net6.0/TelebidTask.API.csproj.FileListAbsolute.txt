@@ -75,3 +75,7 @@ C:\Users\Lenovo\Desktop\TelebidTask\TelebidTask\TelebidTask.API\TelebidTask.API\
 C:\Users\Lenovo\Desktop\TelebidTask\TelebidTask\TelebidTask.API\TelebidTask.API\bin\Debug\net6.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\Lenovo\Desktop\TelebidTask\TelebidTask\TelebidTask.API\TelebidTask.API\bin\Debug\net6.0\TelebidTask.Services.dll
 C:\Users\Lenovo\Desktop\TelebidTask\TelebidTask\TelebidTask.API\TelebidTask.API\bin\Debug\net6.0\TelebidTask.Services.pdb
+C:\Users\Lenovo\Desktop\TelebidTask\TelebidTask\TelebidTask.API\TelebidTask.API\bin\Debug\net6.0\Autofac.dll
+C:\Users\Lenovo\Desktop\TelebidTask\TelebidTask\TelebidTask.API\TelebidTask.API\bin\Debug\net6.0\Autofac.Extras.Moq.dll
+C:\Users\Lenovo\Desktop\TelebidTask\TelebidTask\TelebidTask.API\TelebidTask.API\bin\Debug\net6.0\Castle.Core.dll
+C:\Users\Lenovo\Desktop\TelebidTask\TelebidTask\TelebidTask.API\TelebidTask.API\bin\Debug\net6.0\Moq.dll

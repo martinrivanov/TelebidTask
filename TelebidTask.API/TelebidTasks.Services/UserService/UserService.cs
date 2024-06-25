@@ -21,14 +21,21 @@ namespace TelebidTask.Services.UserService
             this.passwordService = passwordService;
         }
 
-        public User GetUserById(Guid Id)
+        public async Task<UserDTO> GetUserById(Guid Id)
         {
-            return repository.GetUserById(Id);
+            var user = await repository.GetUserById(Id);
+
+            if (user == null)
+            {
+                return null;
+            }
+
+            return MapUserToUserDTO(user);
         }
 
-        public User Login(LoginCredentials credentials)
+        public async Task<UserDTO> Login(LoginCredentials credentials)
         {
-            var user = repository.GetUserByEmail(credentials.Email);
+            var user = await repository.GetUserByEmail(credentials.Email);
 
             if (user == null)
                 return null;
@@ -39,12 +46,12 @@ namespace TelebidTask.Services.UserService
             if (user.Password != enteredPasswordHash)
                 return null;
 
-            return user;
+            return MapUserToUserDTO(user);
         }
 
-        public async Task<User> Register(UserDTO userDTO)
+        public async Task<UserDTO> Register(RegistrationUserModel userDTO)
         {
-            var user = repository.GetUserByEmail(userDTO.Email);
+            var user = await repository.GetUserByEmail(userDTO.Email);
 
             if (user != null)
                 return null;
@@ -60,12 +67,19 @@ namespace TelebidTask.Services.UserService
                 Salt = Convert.ToBase64String(salt)
             };
 
-            return await Task.FromResult(repository.CreateUser(registeredUser));
+            var newUser = await repository.CreateUser(registeredUser);
+
+            if (newUser == null)
+            {
+                return null;
+            }
+
+            return MapUserToUserDTO(newUser);
         }
 
-        public User UpdateUser(Guid id, JsonPatchDocument<User> patch)
+        public async Task<UserDTO> UpdateUser(Guid id, JsonPatchDocument<User> patch)
         {
-            var user = repository.GetUserById(id);
+            var user = await repository.GetUserById(id);
 
             if (user == null)
             {
@@ -81,9 +95,9 @@ namespace TelebidTask.Services.UserService
                 user.Password = passwordService.GeneratePasswordHash(user.Password, Convert.FromBase64String(user.Salt));
             }
 
-            repository.UpdateUser(id, user);
+            await repository.UpdateUser(id, user);
 
-            return user;
+            return MapUserToUserDTO(user);
         }
 
         private User MakeUserCopy(User user)
@@ -94,6 +108,16 @@ namespace TelebidTask.Services.UserService
                 Email = user.Email,
                 Name = user.Name,
                 Password = user.Password,
+            };
+        }
+
+        private UserDTO MapUserToUserDTO(User user)
+        {
+            return new UserDTO
+            {
+                Id = user.Id,
+                Name = user.Name,
+                Email = user.Email
             };
         }
     }
