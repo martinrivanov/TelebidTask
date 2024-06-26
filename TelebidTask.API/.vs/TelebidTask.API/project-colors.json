@@ -13,14 +13,24 @@
     },
     "0a3c1d75-1a84-45a4-8204-d8776a536bc8": {
       "ProjectGuid": "0a3c1d75-1a84-45a4-8204-d8776a536bc8",
-      "DisplayName": "TelebidTasks.Services",
+      "DisplayName": "TelebidTask.Services",
       "ColorIndex": 2
     },
     "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
       "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
       "DisplayName": "Miscellaneous Files",
       "ColorIndex": -1
+    },
+    "298a4121-3f79-4ae3-b548-b963c326b357": {
+      "ProjectGuid": "298a4121-3f79-4ae3-b548-b963c326b357",
+      "DisplayName": "TelebidTask.Services.Tests",
+      "ColorIndex": 3
+    },
+    "776f6f82-f2f5-4e5d-9151-39c988b2cca7": {
+      "ProjectGuid": "776f6f82-f2f5-4e5d-9151-39c988b2cca7",
+      "DisplayName": "TelebidTask.API.Tests",
+      "ColorIndex": 4
     }
   },
-  "NextColorIndex": 3
+  "NextColorIndex": 5
 }
