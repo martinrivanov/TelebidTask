@@ -18,7 +18,6 @@ namespace TelebidTask.API.Tests.IdentityControllerTest
     public class IdentityControllerTest
     {
         private Mock<IUserService> mockUserService;
-        private Mock<IAuthenticationService> mockAuthService;
         private IdentityController identityController;
 
         private Guid validId;
@@ -28,22 +27,6 @@ namespace TelebidTask.API.Tests.IdentityControllerTest
         {
             mockUserService = new Mock<IUserService>();
             identityController = new IdentityController(mockUserService.Object);
-            mockAuthService = new Mock<IAuthenticationService>();
-
-            mockAuthService = new Mock<IAuthenticationService>();
-            var serviceProvider = new ServiceCollection()
-                .AddSingleton(mockAuthService.Object)
-                .BuildServiceProvider();
-
-            var context = new DefaultHttpContext
-            {
-                RequestServices = serviceProvider
-            };
-
-            identityController.ControllerContext = new ControllerContext
-            {
-                HttpContext = context
-            };
 
             validId = Guid.Parse("2E232D6E-0DA3-4D96-66D6-08DC9479ACB2");
         }
@@ -206,10 +189,6 @@ namespace TelebidTask.API.Tests.IdentityControllerTest
             var loginCredentials = GetSampleLoginCredentials();
 
             mockUserService.Setup(x => x.Login(loginCredentials)).ReturnsAsync(userDTO);
-
-            mockAuthService.Setup(x => x.SignInAsync(It.IsAny<HttpContext>(), It.IsAny<string>(), It.IsAny<ClaimsPrincipal>(), It.IsAny<AuthenticationProperties>()))
-                .Returns(Task.CompletedTask);
-            //identityController.ControllerContext.HttpContext.RequestServices = new ServiceCollection().AddSingleton(mockAuthService.Object).BuildServiceProvider();
 
             var result = await identityController.Login(loginCredentials) as OkObjectResult;
 

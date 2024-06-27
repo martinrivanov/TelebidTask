@@ -207,13 +207,15 @@ export const UserDashboard = () => {
 
     return(
         <div>
-            <p>Welcome, {firstName} {lastName}</p>
-            <button onClick={() => handleLogOut()} type="button">Logout</button>
+            <div className="container">
+                <p id="greeting">Welcome, {firstName} {lastName}</p>
+                <button id="logout" onClick={() => handleLogOut()} type="button">Logout</button>
+            </div>
 
             <div id="user-info">
                 <div id="info-container">
-                    <p>First name: {firstName}</p>
-                    <p onClick={(e) => showOrHide('first name', !updateContainerFirstName)}>Edit</p>
+                    <p className="info-container-text">First name: {firstName}</p>
+                    <p className="info-container-text" id="edit-btn" onClick={(e) => showOrHide('first name', !updateContainerFirstName)}>Edit</p>
                     {updateContainerFirstName && 
                     <div className="update-container">
                         <input type="text" name="firstName" id="first-name" placeholder="Enter new first name" value={updateFirstName} onChange={(e) => handleUpdateFirstName(e.currentTarget.value)} />
@@ -224,8 +226,8 @@ export const UserDashboard = () => {
                 </div>
 
                 <div id="info-container">
-                    <p>Last name: {lastName}</p>
-                    <p onClick={() => showOrHide('last name', !updateContainerLastName)}>Edit</p>
+                    <p className="info-container-text">Last name: {lastName}</p>
+                    <p className="info-container-text" id="edit-btn" onClick={() => showOrHide('last name', !updateContainerLastName)}>Edit</p>
                     {updateContainerLastName &&
                     <div className="update-container">
                         <input type="text" name="lastName" id="last-name" placeholder="Enter new last name" value={updateLastName} onChange={(e) => handleUpdateLastName(e.currentTarget.value)} />
@@ -236,8 +238,8 @@ export const UserDashboard = () => {
                 </div>
 
                 <div id="info-container">
-                    <p>Email: {email}</p>
-                    <p onClick={() => showOrHide('email', !updateContainerEmail)}>Edit</p>
+                    <p className="info-container-text">Email: {email}</p>
+                    <p className="info-container-text" id="edit-btn" onClick={() => showOrHide('email', !updateContainerEmail)}>Edit</p>
                     {updateContainerEmail && 
                     <div className="update-container">
                         <input type="email" name="email" id="email" placeholder="Enter new email" value={updateEmail} onChange={(e) => handleUpdateEmail(e.currentTarget.value)} />
@@ -247,7 +249,7 @@ export const UserDashboard = () => {
                     </div>}
                 </div>
 
-                <p onClick={() => showOrHide('password', !updateContainerPassword)}>Change Password</p>
+                <p id="edit-btn" onClick={() => showOrHide('password', !updateContainerPassword)}>Change Password</p>
                 {updateContainerPassword && 
                 <div className="update-container">
                     <input type="password" name="password" id="password" placeholder="Enter new password" value={updatePassword} onChange={(e) => handleUpdatePassword(e.currentTarget.value)} />

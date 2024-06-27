@@ -18,16 +18,6 @@ builder.Services.AddCors(options =>
     )
 );
 
-builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
-    .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme, opt =>
-    {
-        opt.Cookie.HttpOnly = true;
-        opt.Cookie.SecurePolicy = CookieSecurePolicy.Always;
-        opt.Cookie.SameSite = SameSiteMode.None;
-        opt.SlidingExpiration = true;
-        opt.ExpireTimeSpan = new TimeSpan(0, 20, 0);
-    });
-
 builder.Services.AddControllers().AddNewtonsoftJson();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

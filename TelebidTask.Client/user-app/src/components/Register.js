@@ -3,6 +3,7 @@ import { validateEmail, validateName, validatePassword } from "../validation-ser
 import { useNavigate } from 'react-router-dom'
 import axios from '../config/axios.js'
 import { endpoints } from "../data/endpoints";
+import { Navbar } from "./Navbar";
 
 export const Register = () => {
     const [firstName, setFirstName] = useState('');
@@ -71,20 +72,21 @@ export const Register = () => {
 
     return (
         <>
+            <Navbar />
             <div class="form">
                 <form onSubmit={(e) => handleSubmit(e)}>
-                    <input type="text" name="FirstName" id="first-name" placeholder="First Name" value={firstName} onChange={(e) => handleFirstNameInput(e.currentTarget.value)} required/>
-                    <input type="text" name="LastName" id="last-name" placeholder="Last Name" value={lastName} onChange={(e) => handleLastNameInput(e.currentTarget.value)} required/>
-                    <input type="email" name="Email" id="email" placeholder="Email" value={email} onChange={(e) => handleEmailInput(e.currentTarget.value)} required/>
-                    <input type="password" name="Password" id="password" placeholder="Password" value={password} onChange={(e) => handlePasswordInput(e.currentTarget.value)} required/>
-                    <button type="submit">Register</button>
+                    <input className="register-input" type="text" name="FirstName" id="first-name" placeholder="First Name" value={firstName} onChange={(e) => handleFirstNameInput(e.currentTarget.value)} required/>
+                    <div className="error-message">{errorsFirstName.error}</div>
+                    <input className="register-input" type="text" name="LastName" id="last-name" placeholder="Last Name" value={lastName} onChange={(e) => handleLastNameInput(e.currentTarget.value)} required/>
+                    <div className="error-message">{errorsLastName.error}</div>
+                    <input className="register-input" type="email" name="Email" id="email" placeholder="Email" value={email} onChange={(e) => handleEmailInput(e.currentTarget.value)} required/>
+                    <div className="error-message">{errorsEmail.error}</div>
+                    <input className="register-input" type="password" name="Password" id="password" placeholder="Password" value={password} onChange={(e) => handlePasswordInput(e.currentTarget.value)} required/>
+                    <div className="error-message">{errorsPassword.error}</div>
+                    <button className="register-btn" type="submit">Register</button>
                 </form>
             </div>
             <div class="error-message">{generalError.error}</div>
-            <div class="error-message">{errorsFirstName.error}</div>
-            <div class="error-message">{errorsLastName.error}</div>
-            <div class="error-message">{errorsEmail.error}</div>
-            <div class="error-message">{errorsPassword.error}</div>
         </>
     )
 }

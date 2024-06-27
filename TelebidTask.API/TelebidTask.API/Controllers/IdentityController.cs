@@ -88,16 +88,6 @@ namespace TelebidTask.API.Controllers
                 return new BadRequestObjectResult(new { Message = "Incorrect email or password" });
             }
 
-            var claims = new List<Claim>
-            {
-                new Claim(ClaimTypes.Email, user.Email),
-                new Claim(ClaimTypes.Name, user.Name),
-            };
-
-            var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
-
-            await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity));
-
             return new OkObjectResult(new { UserId = user.Id });
         }
 

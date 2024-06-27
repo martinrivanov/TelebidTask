@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router";
 import { drawCaptcha, generateCaptchaText } from "../captcha-service/captcha";
 import { endpoints } from "../data/endpoints";
+import { Navbar } from "./Navbar.js";
 
 export const Login = () => {
     const navigate = useNavigate();
@@ -67,14 +68,15 @@ export const Login = () => {
 
     return (
         <>
+            <Navbar />
             <div class="form">
                 <form onSubmit={(e) => handleSubmit(e)}>
-                    <input type="email" name="Email" id="email" placeholder="Email" value={email} onChange={(e) => handleEmailInput(e.currentTarget.value)} required/>
-                    <input type="password" name="Password" id="password" placeholder="Password" value={password} onChange={(e) => handlePasswordInput(e.currentTarget.value)} required/>
+                    <input className="login-input" type="email" name="Email" id="email" placeholder="Email" value={email} onChange={(e) => handleEmailInput(e.currentTarget.value)} required/>
+                    <input className="login-input" type="password" name="Password" id="password" placeholder="Password" value={password} onChange={(e) => handlePasswordInput(e.currentTarget.value)} required/>
                     <canvas ref={captchaRef} width="200" height="70"></canvas>
-                    <input type="text" name="Captcha" id="captcha" placeholder="Enter Captcha Text" value={captchaUserText} onChange={(e) => handleCaptchaUserText(e.currentTarget.value)} required/>
-                    <button type="button" onClick={() => createCaptcha(captchaRef.current.getContext("2d"))}>Reload</button>
-                    <button type="submit">Login</button>
+                    <input className="login-input" type="text" name="Captcha" id="captcha" placeholder="Enter Captcha Text" value={captchaUserText} onChange={(e) => handleCaptchaUserText(e.currentTarget.value)} required/>
+                    <button className="login-btn" type="button" onClick={() => createCaptcha(captchaRef.current.getContext("2d"))}>Reload</button>
+                    <button className="login-btn" type="submit">Login</button>
                 </form>
             </div>
             <div class="error-message">{generalError.error}</div>
