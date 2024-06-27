@@ -49,20 +49,20 @@ namespace TelebidTask.Services.UserService
             return MapUserToUserDTO(user);
         }
 
-        public async Task<UserDTO> Register(RegistrationUserModel userDTO)
+        public async Task<UserDTO> Register(RegistrationUserModel registrationModel)
         {
-            var user = await repository.GetUserByEmail(userDTO.Email);
+            var user = await repository.GetUserByEmail(registrationModel.Email);
 
             if (user != null)
                 return null;
 
             var salt = passwordService.GenerateSalt();
-            var hashedPassword = passwordService.GeneratePasswordHash(userDTO.Password, salt);
+            var hashedPassword = passwordService.GeneratePasswordHash(registrationModel.Password, salt);
 
             User registeredUser = new User
             {
-                Name = userDTO.Name,
-                Email = userDTO.Email,
+                Name = registrationModel.Name,
+                Email = registrationModel.Email,
                 Password = hashedPassword,
                 Salt = Convert.ToBase64String(salt)
             };
