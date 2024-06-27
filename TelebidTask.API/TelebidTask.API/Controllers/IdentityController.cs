@@ -95,7 +95,6 @@ namespace TelebidTask.API.Controllers
         [Route("/Logout")]
         public async Task<IActionResult> Logout()
         {
-            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             return new OkResult();
         }
     }
