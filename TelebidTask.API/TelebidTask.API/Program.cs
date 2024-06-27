@@ -9,9 +9,21 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
+builder.Services.AddCors(options =>
+    options.AddPolicy("AllowSpecificOrigin", builder => 
+        builder.WithOrigins("http://localhost:3005")
+            .AllowAnyHeader()
+            .AllowAnyMethod()
+            .AllowCredentials()
+    )
+);
+
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
     .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme, opt =>
     {
+        opt.Cookie.HttpOnly = true;
+        opt.Cookie.SecurePolicy = CookieSecurePolicy.Always;
+        opt.Cookie.SameSite = SameSiteMode.None;
         opt.SlidingExpiration = true;
         opt.ExpireTimeSpan = new TimeSpan(0, 20, 0);
     });
@@ -35,6 +47,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseCors("AllowSpecificOrigin");
 
 app.UseAuthentication();
 

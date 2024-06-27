@@ -1,5 +1,8 @@
 import { useState } from "react"
 import { validateEmail, validateName, validatePassword } from "../validation-service/validate";
+import { useNavigate } from 'react-router-dom'
+import axios from '../config/axios.js'
+import { endpoints } from "../data/endpoints";
 
 export const Register = () => {
     const [firstName, setFirstName] = useState('');
@@ -7,10 +10,13 @@ export const Register = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
+    const [generalError, setGeneralError] = useState({});
     const [errorsFirstName, setErrorsFirstName] = useState({});
     const [errorsLastName, setErrorsLastName] = useState({});
     const [errorsEmail, setErrorsEmail] = useState({});
     const [errorsPassword, setErrorsPassword] = useState({});
+
+    const navigate = useNavigate();
 
     const handleFirstNameInput = (value) => {
         setFirstName(value);
@@ -42,12 +48,25 @@ export const Register = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        
-        if(errorsFirstName.error || errorsLastName.error || errorsEmail.error || errorsPassword.error)
-            console.log("Invalid form");
+        setGeneralError({});
 
-        else
-            console.log("Valid form");
+        
+        if(!(errorsFirstName.error || errorsLastName.error || errorsEmail.error || errorsPassword.error)){
+            const userData = {
+                name: firstName + ' ' + lastName,
+                email: email,
+                password: password
+            };
+
+            axios.post(endpoints.register, userData)
+                 .then((res) => {
+                     navigate('/login');
+                 })
+                 .catch((error) => {
+                     setGeneralError({error: error.data.message})
+                 })
+        }
+            
     };
 
     return (
@@ -61,6 +80,7 @@ export const Register = () => {
                     <button type="submit">Register</button>
                 </form>
             </div>
+            <div class="error-message">{generalError.error}</div>
             <div class="error-message">{errorsFirstName.error}</div>
             <div class="error-message">{errorsLastName.error}</div>
             <div class="error-message">{errorsEmail.error}</div>

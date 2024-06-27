@@ -20,7 +20,6 @@ namespace TelebidTask.API.Controllers
             this.userService = userService;
         }
 
-        [Authorize(AuthenticationSchemes = CookieAuthenticationDefaults.AuthenticationScheme)]
         [HttpGet]
         [Route("/{id}")]
         public async Task<IActionResult> GetUserById(Guid id)
@@ -35,21 +34,20 @@ namespace TelebidTask.API.Controllers
             return new OkObjectResult(user);
         }
 
-        [Authorize(AuthenticationSchemes = CookieAuthenticationDefaults.AuthenticationScheme)]
         [HttpPatch]
-        [Route("/")]
+        [Route("/{id}")]
         public async Task<IActionResult> UpdateUser(Guid id, [FromBody]JsonPatchDocument<User> patch)
         {
             if (patch == null || !ModelState.IsValid)
             {
-                return new BadRequestObjectResult(new { Mesage = "Invalid Data" });
+                return new BadRequestObjectResult(new { Message = "Invalid Data" });
             }
 
             var user = await userService.UpdateUser(id, patch);
 
             if (user == null)
             {
-                return new NotFoundObjectResult(new { Mesage = "No User Was Found" });
+                return new NotFoundObjectResult(new { Message = "No User Was Found" });
             }
 
             return new NoContentResult();
@@ -61,14 +59,14 @@ namespace TelebidTask.API.Controllers
         {
             if (registration == null || !ModelState.IsValid)
             {
-                return new BadRequestObjectResult(new { Mesage = "No Credentials" });
+                return new BadRequestObjectResult(new { Message = "No Credentials" });
             }
 
             var newUser = await userService.Register(registration);
 
             if (newUser == null)
             {
-                return new BadRequestObjectResult(new { Mesage = "Registration Unsuccessful" });
+                return new BadRequestObjectResult(new { Message = "Registration Unsuccessful" });
             }
 
             return new OkResult();
@@ -80,7 +78,7 @@ namespace TelebidTask.API.Controllers
         {
             if (credentials == null || !ModelState.IsValid)
             {
-                return new BadRequestObjectResult(new { Mesage = "No Credentials" });
+                return new BadRequestObjectResult(new { Message = "No Credentials" });
             }
 
             var user = await userService.Login(credentials);
